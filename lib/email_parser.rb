@@ -7,11 +7,9 @@ class EmailAddressParser
     def initialize(emails)
         @emails = emails
     end
-    
     def parse
-        emails_array = emails.split(/[,\s]+/)
-        emails_array.uniq
+        delimiters = [", ", " "]
+        new_array = @emails.split(Regexp.union(delimiters))
+        new_array.uniq
     end
-    
-    private
-end  
+end
